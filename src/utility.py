@@ -58,7 +58,7 @@ def bt_save_population(prev_pop, population,gen, root_path) :
     dataFrame.to_csv(root_path+"/gen"+str(gen)+".csv")
 
 
-def save_population(population,gen, root_path, file_prefix) :
+def save_population(population,gen, root_path, file_prefix="") :
 
     population.to_csv(root_path+"/gen"+file_prefix+str(gen)+".csv")
 

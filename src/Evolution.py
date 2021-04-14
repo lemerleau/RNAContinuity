@@ -18,7 +18,7 @@ def init(pop_size, seq_length, nucleotide_set,landscape) :
 
 
 def reproduce(pop,new_pop_strc, fitnesses) :
-    weights  = 1./(1.+np.array(fitnesses, dtype = float))
+    weights  = 1./(0.01+np.array(fitnesses, dtype = float)/len(pop[0]))
     selected = np.random.choice(range(len(pop)),size=len(pop),p=weights/sum(weights))
     new_seqs = np.array(pop)
     return DataFrame(np.array([new_seqs[selected],np.array(new_pop_strc)[selected],np.array(fitnesses)[selected]]).T,
@@ -48,6 +48,7 @@ def evolution(params) :
     mean_fitness = [np.mean(np.array(current_pop["fitness"], dtype = float))]
 
     for i in range(params['time']) :
+        ut.save_population(current_pop,i,'../data/exp0')
         if i%10 == 0 :
             print('Generation {}, and mean fitness {}'.format(i,mean_fitness[i]))
 
@@ -71,14 +72,14 @@ def evolution(params) :
 def main() :
 
     nucleotides = ["A", "U" , "G", "C"]
-    pop_size = 100
-    target= '((((......)))).((.....))....'
-    rate = 1./len(target)
+    pop_size = 1000
+    target= '((((((...((((........)))).(((((.......))))).....(((((.......))))).))))))....'
+    rate = 0.001
     length = len(target)
     ldscape = Landscape.Landscape(target)
-    time = 500
+    time = 1300
 
-    print("Starting RNA evolution...")
+    print("Starting RNA evolution with target of length {}".format(len(target)))
     init_pop = init(pop_size,length,nucleotides,ldscape)
     params = {
     'rate' : rate,
