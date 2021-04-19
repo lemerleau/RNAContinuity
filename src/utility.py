@@ -81,7 +81,7 @@ def ppeval(listOfSeqs, target) :
 
 
 
-def ppfold(listOfSeqs,tool) :
+def ppfold(listOfSeqs,tool="v") :
 
     if tool =="v" :
         return ppRNAfold(listOfSeqs)
