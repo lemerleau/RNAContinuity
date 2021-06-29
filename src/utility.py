@@ -59,7 +59,8 @@ def bt_save_population(prev_pop, population,gen, root_path) :
 
 
 def save_population(population,gen, root_path, file_prefix="") :
-
+    if not os.path.exists(root_path) :
+        os.mkdir(root_path)
     population.to_csv(root_path+"/gen"+file_prefix+str(gen)+".csv")
 
 

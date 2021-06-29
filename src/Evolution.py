@@ -89,6 +89,7 @@ def main() :
     nucleotides = ["A", "U" , "G", "C"]
     pop_size = 1000
     target= '((((((...((((........)))).(((((.......))))).....(((((.......))))).))))))....'
+    #target = ".((((....((((((((....)))).((((........)))).....((((((....)))))).))))))))...."
     rate = 0.001
     length = len(target)
     ldscape = Landscape.Landscape(target)

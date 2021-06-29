@@ -13,7 +13,6 @@ import array
 
 
 
-
 def ppRNAfold(listOfSeqs) :
     task = uuid.uuid4()
     dataFrame= pandas.DataFrame(listOfSeqs)
@@ -99,8 +98,6 @@ def ppRNAfold(listOfSeqs) :
 
     return
 """
-
-
 
 #Just for test
 def main():
