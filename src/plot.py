@@ -109,7 +109,7 @@ def main() :
         linage = pd.read_csv(root_path+"/evol_path.csv").values
     except FileNotFoundError as fe:
         print("ERROOOOE")
-        evolutionary_path = backtrackevolution(root_path+'/', target,gen,ref_id)
+        #evolutionary_path = backtrackevolution(root_path+'/', target,gen,ref_id)
         linage =pd.DataFrame(np.array(evolutionary_path))
         linage.to_csv(root_path+"/evol_path.csv")
         linage = linage.values
@@ -153,6 +153,8 @@ def main() :
         green_data +=range(ep_time[i], ep_time[i+1])
         Y_axis +=[48-i*1.6]*len(range(ep_time[i], ep_time[i+1]))
 
+    green_data +=range(ep_time[-1], gen+1)
+    Y_axis +=[48-len(ep_time)*1.6]*len(range(ep_time[-1], gen+1))
     ##### Ploting...#######
     print("Number of green point: ", len(green_data))
     fig, ax = plt.subplots()
@@ -187,7 +189,7 @@ def main() :
 
     plt.plot(green_data, Y_axis, color="green")
     plt.plot(mf, color='black')
-    plt.savefig('../images/continuity_rafftken.pdf')
+    plt.savefig('../images/continuity_RNAfold.pdf')
 
     #plt.savefig('../images/entropy.pdf')
     plt.show()
