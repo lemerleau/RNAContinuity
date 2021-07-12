@@ -1,0 +1,7 @@
+# keep the data folder for now
+# This file can safely be removed otherwise
+# to force an empty folder, create `data/.gitignore` containing the lines:
+```
+*
+!.gitignore
+```
